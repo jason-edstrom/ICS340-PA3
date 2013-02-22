@@ -284,6 +284,10 @@ public class WordCollection {
         return englishInEnglish;
     }
 
+    WordCollection getSomeUniqueRandomWords(int some_number, int min_length_of_word, String a_theme){
+
+    }
+
 
     public String toString(){
         String temp = "\nE_in_E\t\t\t\t\tE_in_L\t\t\t\t\tL_in_L\t\t\t\t\tL_in_E";
