@@ -104,7 +104,7 @@ public class WordCollection {
           parser.useDelimiter("=|\\n");
          currentString = parser.next();
       }  else{
-          parser.useDelimiter(", *|\\n");
+          parser.useDelimiter("\\| *|\\n");
       }
 
      while (parser.hasNext()){
@@ -156,7 +156,7 @@ public class WordCollection {
                               currentString = currentString.replaceAll("\\]","\t");
                           }
                      ArrayList<String> ethemes = new ArrayList<String>();
-                     StringTokenizer stringTokenizer = new StringTokenizer(currentString);
+                     StringTokenizer stringTokenizer = new StringTokenizer(currentString, "\t\n\r\f,\"");
                      while (stringTokenizer.hasMoreTokens()) {
                          String token = stringTokenizer.nextToken();
                          ethemes.add(token);
@@ -170,7 +170,7 @@ public class WordCollection {
                          currentString = currentString.replaceAll("\\]","\t");
                      }
                      ArrayList<String> lthemes = new ArrayList<String>();
-                     stringTokenizer = new StringTokenizer(currentString, "\t\n\r\f,");
+                     stringTokenizer = new StringTokenizer(currentString, "\t\n\r\f,\"");
                      while (stringTokenizer.hasMoreTokens()) {
                          String token = stringTokenizer.nextToken();
                          lthemes.add(token);
