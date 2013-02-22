@@ -287,7 +287,9 @@ public class WordCollection {
     WordCollection getSomeUniqueRandomWords(int some_number, int min_length_of_word, String a_theme){
 
         WordCollection uniqueWords = new WordCollection("clear");
+       for (int counter = 0; counter < some_number; counter++ ){
 
+       }
 
 
         return  uniqueWords;

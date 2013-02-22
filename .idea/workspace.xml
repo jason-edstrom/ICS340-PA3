@@ -15,13 +15,16 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/../ICS 340 - Assignment 3/src/Word.java" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../ICS 340 - Assignment 3/src/WordCollection.java" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../ICS 340 - Assignment 3/testwordsPA3.txt" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/WordCollection.java" afterPath="$PROJECT_DIR$/src/WordCollection.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="ICS 340 - Assignment 3.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="298fd466-d017-4946-84fb-b792f09e3743" time="1361569745276" ignored="false" />
     <file path="/fragment.java" changelist="298fd466-d017-4946-84fb-b792f09e3743" time="1361558415121" ignored="false" />
-    <file path="/WordCollection.java" changelist="298fd466-d017-4946-84fb-b792f09e3743" time="1361570959134" ignored="false" />
+    <file path="/WordCollection.java" changelist="298fd466-d017-4946-84fb-b792f09e3743" time="1361575002530" ignored="false" />
+    <file path="/.gitignore" changelist="298fd466-d017-4946-84fb-b792f09e3743" time="1361575203662" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,7 +103,7 @@
       <file leaf-file-name="Word.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Word.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="13" selection-start="473" selection-end="473" vertical-scroll-proportion="0.0">
+            <state line="325" column="29" selection-start="7132" selection-end="7132" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -109,7 +112,7 @@
       <file leaf-file-name="WordCollection.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/WordCollection.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="287" column="8" selection-start="10215" selection-end="10215" vertical-scroll-proportion="0.34210527">
+            <state line="290" column="11" selection-start="10347" selection-end="10347" vertical-scroll-proportion="0.23464912">
               <folding>
                 <element signature="e#4940#4948#0" expanded="true" />
               </folding>
@@ -144,6 +147,7 @@
         <option value="$PROJECT_DIR$/testwordsPA3.txt" />
         <option value="$PROJECT_DIR$/testwordsPA3_2.txt" />
         <option value="$PROJECT_DIR$/src/WordCollection.java" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -457,13 +461,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Word.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="13" selection-start="473" selection-end="473" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/testwordsPA3_2.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state line="100" column="0" selection-start="13205" selection-end="13205" vertical-scroll-proportion="0.0">
@@ -478,9 +475,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Word.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="325" column="29" selection-start="7132" selection-end="7132" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="6" selection-start="56" selection-end="56" vertical-scroll-proportion="0.12793177">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/WordCollection.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="287" column="8" selection-start="10215" selection-end="10215" vertical-scroll-proportion="0.34210527">
+        <state line="290" column="11" selection-start="10347" selection-end="10347" vertical-scroll-proportion="0.23464912">
           <folding>
             <element signature="e#4940#4948#0" expanded="true" />
           </folding>
