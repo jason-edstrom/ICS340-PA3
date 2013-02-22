@@ -296,7 +296,7 @@ public class WordCollection {
 
     public static void main(String args[]){
         System.out.println("Starting Program");
-         WordCollection collection = new WordCollection("testwordsPA3.txt");
+         WordCollection collection = new WordCollection("testwordsPA3_2.txt");
         System.out.println("Done adding words to collection");
         System.out.println("Get all English Themes");
         ArrayList<String> englishThemes = collection.getAllThemesInEnglish();
