@@ -16,14 +16,12 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/../ICS 340 - Assignment 3/src/WordCollection.java" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../ICS 340 - Assignment 3/testwordsPA3.txt" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/WordCollection.java" afterPath="$PROJECT_DIR$/src/WordCollection.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="ICS 340 - Assignment 3.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="298fd466-d017-4946-84fb-b792f09e3743" time="1361569745276" ignored="false" />
     <file path="/fragment.java" changelist="298fd466-d017-4946-84fb-b792f09e3743" time="1361558415121" ignored="false" />
-    <file path="/WordCollection.java" changelist="298fd466-d017-4946-84fb-b792f09e3743" time="1361568746193" ignored="false" />
+    <file path="/WordCollection.java" changelist="298fd466-d017-4946-84fb-b792f09e3743" time="1361570959134" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,7 +109,7 @@
       <file leaf-file-name="WordCollection.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/WordCollection.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="287" column="8" selection-start="10215" selection-end="10215" vertical-scroll-proportion="0.2982456">
+            <state line="287" column="8" selection-start="10215" selection-end="10215" vertical-scroll-proportion="0.34210527">
               <folding>
                 <element signature="e#4940#4948#0" expanded="true" />
               </folding>
@@ -344,9 +342,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="3" y="22" width="2718" height="742" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
-      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20096463" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20096463" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329582" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -482,7 +480,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/WordCollection.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="287" column="8" selection-start="10215" selection-end="10215" vertical-scroll-proportion="0.2982456">
+        <state line="287" column="8" selection-start="10215" selection-end="10215" vertical-scroll-proportion="0.34210527">
           <folding>
             <element signature="e#4940#4948#0" expanded="true" />
           </folding>
