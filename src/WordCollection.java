@@ -256,6 +256,28 @@ public class WordCollection {
         return themeWords;
     }
 
+    protected WordCollection getWordCollectionforLangTheme(String a_lang_theme) {
+        WordCollection themeWords = new WordCollection("clear");
+
+        for (Word currentWord: words){
+            ArrayList<String> themes = currentWord.getThemesinLang();
+            for (String currentTheme : themes){
+                if (currentTheme.equals(a_lang_theme)){
+                    try {
+                        themeWords.addWord(String.valueOf(currentWord));
+                        break;
+                    } catch (IOException e) {
+                        e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+                    }
+                }
+            }
+
+        }
+        return themeWords;
+
+
+    }
+
     protected WordCollection getSomeRandomWords(int some_number) {
         WordCollection randomCollection = new WordCollection("clear");
         Random randomGenerator = new Random();
@@ -285,12 +307,59 @@ public class WordCollection {
     }
 
     WordCollection getSomeUniqueRandomWords(int some_number, int min_length_of_word, String a_theme){
+        if (min_length_of_word < 2){
+            throw new NegativeArraySizeException("Minimum word length is under 2 characters");
+        } else if (words.size() < some_number){
+            throw new ArrayIndexOutOfBoundsException("There are not enough words in the collection to process this instruction");
+        }
+        boolean hasTheme = false;
+        boolean hasEnough = true;
+        if(a_theme != null && !a_theme.isEmpty()){
+            hasTheme = true;
+        }
+         WordCollection internalCollection = new WordCollection("clear");
+        if (hasTheme = true){
+                   internalCollection.getWordCollectionforEnglishTheme(a_theme);
+                   if (internalCollection.words.size() == 0){
+                       internalCollection.getWordCollectionforLangTheme(a_theme);
+                   }
+                   if ((internalCollection.words.size() == 0) ^ (internalCollection.words.size() < some_number)){
+                       hasEnough = false;
+                       int remainder = some_number - internalCollection.words.size();
+                   }
 
-        WordCollection uniqueWords = new WordCollection("clear");
-       for (int counter = 0; counter < some_number; counter++ ){
 
-       }
 
+        } else{
+
+        }
+
+        WordCollection uniqueWords = new WordCollection();
+
+
+        Random randomGenerator = new Random();
+
+
+
+
+       /*do{
+
+
+           int index = randomGenerator.nextInt(words.size());
+
+           Word currentWord = words.get(index);
+
+
+
+           if (hasTheme = true){
+           ArrayList<String> randomEThemes = currentWord.getThemesinEnglish();
+
+           }
+               //randomCollection.addWord(String.valueOf(word));
+
+
+       }   while (uniqueWords.words.size() < some_number);
+*/
 
         return  uniqueWords;
     }
