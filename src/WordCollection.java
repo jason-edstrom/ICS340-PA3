@@ -326,7 +326,14 @@ public class WordCollection {
 
 
             for (Word currentWord: internalCollection.words){
-                     String engInEng = currentWord.getEnglishInEnglish()
+                     String engInEngCompare = currentWord.getEnglishInEnglish();
+                for (int compareCounter = internalCollection.words.indexOf(currentWord)+1; compareCounter < internalCollection.words.size(); compareCounter++){
+                    Word compareToWord= internalCollection.words.get(compareCounter);
+                    if (!(engInEngCompare.equals(compareToWord.getEnglishInEnglish()))){
+                        int index = internalCollection.words.indexOf(compareToWord);
+                        internalCollection.words.remove(index);
+                    }
+                }
             }
 
             if ((internalCollection.words.size() == 0) ^ (internalCollection.words.size() < some_number)){
