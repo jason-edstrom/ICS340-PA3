@@ -265,10 +265,11 @@ public class WordCollection {
                 if (currentTheme.equals(a_lang_theme)){
                     try {
                         themeWords.addWord(String.valueOf(currentWord));
+                        //themeWords.words.add(currentWord);
                         break;
-                    } catch (IOException e) {
+                   } catch (IOException e) {
                         e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
-                    }
+                   }
                 }
             }
 
@@ -314,37 +315,68 @@ public class WordCollection {
         }
         boolean hasTheme = false;
         boolean hasEnough = true;
-        if(a_theme != null && !a_theme.isEmpty()){
+        if((a_theme != null) && !(a_theme.isEmpty()) && !(a_theme == "")){
             hasTheme = true;
         }
          WordCollection internalCollection = new WordCollection("clear");
-        if (hasTheme = true){
-                   internalCollection.getWordCollectionforEnglishTheme(a_theme);
+            if (hasTheme){
+             internalCollection = getWordCollectionforEnglishTheme(a_theme);
                    if (internalCollection.words.size() == 0){
-                       internalCollection.getWordCollectionforLangTheme(a_theme);
+                       internalCollection = getWordCollectionforLangTheme(a_theme);
                    }
 
+               //Duplication Check and remove
 
             for (Word currentWord: internalCollection.words){
                      String engInEngCompare = currentWord.getEnglishInEnglish();
+                if (!(engInEngCompare.length() >= min_length_of_word)){
+                    int index = internalCollection.words.indexOf(engInEngCompare);
+                    internalCollection.words.remove(index);
+                }else{
                 for (int compareCounter = internalCollection.words.indexOf(currentWord)+1; compareCounter < internalCollection.words.size(); compareCounter++){
                     Word compareToWord= internalCollection.words.get(compareCounter);
-                    if (!(engInEngCompare.equals(compareToWord.getEnglishInEnglish()))){
+
+                    String compareToWordString = compareToWord.getEnglishInEnglish();
+
+                    if (engInEngCompare.equals(compareToWordString)){
                         int index = internalCollection.words.indexOf(compareToWord);
                         internalCollection.words.remove(index);
                     }
+                }
+
                 }
             }
 
             if ((internalCollection.words.size() == 0) ^ (internalCollection.words.size() < some_number)){
                 hasEnough = false;
                 int remainder = some_number - internalCollection.words.size();
-            }
-        } else{
+            } else {
+                ArrayList<Word> tempHolderList = new ArrayList<Word>();
 
+                Random randomGenerator = new Random();
+                boolean tempEmpty = true;
+                do{
+                    int index = randomGenerator.nextInt(internalCollection.words.size());
+                    Word currentWord = internalCollection.words.get(index);
+
+                    boolean hasDuplicate = false;
+                    for (Word checkWord: tempHolderList){
+                        if ((currentWord.getEnglishInEnglish().equals(checkWord.getEnglishInEnglish()))){
+                            hasDuplicate = true;
+                        }
+                    }
+
+                    if (!(hasDuplicate) || (tempEmpty)){
+                       tempHolderList.add(currentWord);
+                        tempEmpty = false;
+                    }
+
+                }   while (tempHolderList.size() < some_number);
+                internalCollection.words = tempHolderList;
+            }
         }
 
-        WordCollection uniqueWords = new WordCollection();
+        if ((!hasEnough) ^ (!hasTheme) ) {
 
 
         Random randomGenerator = new Random();
@@ -352,30 +384,39 @@ public class WordCollection {
 
 
 
-       /*do{
+       do{
 
 
            int index = randomGenerator.nextInt(words.size());
 
            Word currentWord = words.get(index);
+           String currentString = currentWord.getEnglishInEnglish();
+           boolean duplicateWord = false;
 
+            //Duplicate Check for random word non theme word pull
+           for (Word checkWord: internalCollection.words){
 
-
-           if (hasTheme = true){
-           ArrayList<String> randomEThemes = currentWord.getThemesinEnglish();
+               String checkString = checkWord.getEnglishInEnglish();
+               int compareWords = currentString.compareTo(checkString);
+               if (compareWords == 0){
+                   duplicateWord = true;
+                   break;
+               }
 
            }
-               //randomCollection.addWord(String.valueOf(word));
+            if (!(duplicateWord)){
+               internalCollection.words.add(currentWord);
+            }
 
+       }   while (internalCollection.words.size() < some_number);
 
-       }   while (uniqueWords.words.size() < some_number);
-*/
-
-        return  uniqueWords;
+        }
+        return  internalCollection;
     }
 
 
     public String toString(){
+
         String temp = "\nE_in_E\t\t\t\t\tE_in_L\t\t\t\t\tL_in_L\t\t\t\t\tL_in_E";
         for (Word currentWord: words){
             temp = temp + "\n"+currentWord.getEnglishInEnglish()+"\t"+currentWord.getEnglishInLang()+"\t"+currentWord.getLangInLang()+"\t"+currentWord.getLangInEnglish()+"\t";
