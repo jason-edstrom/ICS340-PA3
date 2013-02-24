@@ -10,7 +10,7 @@
 public class WordCollectionTester {
 
     public WordCollectionTester(){
-            WordCollection collection = new WordCollection("TestWordsPA3_correct.txt");
+            WordCollection collection = new WordCollection("RealWords.txt");
         //Test Case 1: check for etheme
             WordCollection etheme1RandomWords = collection.getSomeUniqueRandomWords(7,3,"etheme1");
         //Test Case 2: check for ltheme

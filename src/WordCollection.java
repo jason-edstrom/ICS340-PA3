@@ -301,7 +301,7 @@ public class WordCollection {
     protected ArrayList<String> getEnglishInEnglishCollection() {
         ArrayList<String> englishInEnglish= new ArrayList<String>();
         for (Word currentWord: words){
-               englishInEnglish.add(currentWord.getEnglishInEnglish());
+               englishInEnglish.add(currentWord.getEnglishInEnglish().replaceAll("\\s",""));
         }
 
         return englishInEnglish;
