@@ -395,14 +395,10 @@ public class WordCollection {
 
             //Duplicate Check for random word non theme word pull
            for (Word checkWord: internalCollection.words){
+               if (((currentWord.getEnglishInEnglish().replaceAll("\\s","")).equals(checkWord.getEnglishInEnglish().replaceAll("\\s","")))){
+                duplicateWord = true;
 
-               String checkString = checkWord.getEnglishInEnglish();
-               int compareWords = currentString.compareTo(checkString);
-               if (compareWords == 0){
-                   duplicateWord = true;
-                   break;
-               }
-
+           }
            }
             if (!(duplicateWord)){
                internalCollection.words.add(currentWord);
