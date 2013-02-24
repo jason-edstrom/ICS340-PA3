@@ -386,15 +386,20 @@ public class WordCollection {
 
 
        do{
-
-
+           String currentString = null;
+           Word currentWord = null;
+           //word length check
+           do{
            int index = randomGenerator.nextInt(words.size());
 
-           Word currentWord = words.get(index);
-           String currentString = currentWord.getEnglishInEnglish();
+           currentWord = words.get(index);
+           currentString = currentWord.getEnglishInEnglish();
+           }while (currentString.length() < min_length_of_word);
+
            boolean duplicateWord = false;
 
             //Duplicate Check for random word non theme word pull
+
            for (Word checkWord: internalCollection.words){
                if (((currentWord.getEnglishInEnglish().replaceAll("\\s","")).equals(checkWord.getEnglishInEnglish().replaceAll("\\s","")))){
                 duplicateWord = true;
@@ -404,6 +409,7 @@ public class WordCollection {
             if (!(duplicateWord)){
                internalCollection.words.add(currentWord);
             }
+          // }
 
        }   while (internalCollection.words.size() < some_number);
 
