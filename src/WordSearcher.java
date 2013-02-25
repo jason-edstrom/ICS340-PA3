@@ -49,11 +49,12 @@ public class WordSearcher {
                  }else{
                      firstWord = false;
                  }
-                 //char[] characters = word.toCharArray();
-                 //addCharacters(characters, firstWord);
-                 add(word, this.puzzle);
-                 solution = puzzle;
+
+                 add(word, puzzle);
+
             }
+        solution = copyPuzzle();
+        fill(puzzle);
     }
     /*
     private void addCharacters (char[] letters, boolean first ){
@@ -129,35 +130,38 @@ public class WordSearcher {
 
 
 
-    private ArrayList<int[]> searchMatrix(char value){
-        ArrayList<int[]> valueFoundList = new ArrayList<int[]>();
+    private String[][] copyPuzzle (){
+        String[][] backup = new String[grid_width][grid_height];
         for (int row = 0; row < grid_width; row++) {
             for (int col = 0; col < grid_height; col++) {
-                if (puzzle[row][col].equals(value)){
-                    int[] coordinates = {row, col};
-                    valueFoundList.add(coordinates);
+            String middle = String.valueOf(puzzle[row][col]);
+                if (middle == "null"){
+                     middle = null;
+                    backup[row][col] = middle;
+                } else{
+                backup[row][col] = middle;
                 }
+
+            }
         }
-    }
-        return valueFoundList;
+      return backup;
     }
 
-    private char[][] fill(char[][] puzzle) {
-        char[][] ret = new char[puzzle.length][puzzle.length];
-        RandChar r = new RandChar();
+    private void fill(String[][] puzzle) {
+        String[][] ret = new String[grid_width][grid_height];
+        RandomCharacter r = new RandomCharacter();
 
-        for(int i=0; i<ret.length; i++) {
-            for(int j=0; j<ret.length; j++) {
-                if(puzzle[i][j] != ' ') {
-                    ret[i][j] = puzzle[i][j];
-                } else {
-                    ret[i][j] = r.nextChar();
-                }
+        for (int row = 0; row < grid_width; row++) {
+            for (int col = 0; col < grid_height; col++) {
+               if (puzzle [row][col] == null){
+                   puzzle [row][col] = r.nextCharacter();
+               }
             }
         }
 
-        return ret;
     }
+
+
     /*
      public static String [] [] solvePuzzle( String [] [] somePuzzle, ArrayList<String> someStrings){
 
@@ -233,4 +237,6 @@ public class WordSearcher {
         System.out.println(z1);
 
     }
+
+
 }
