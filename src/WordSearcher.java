@@ -1,6 +1,7 @@
+import java.awt.*;
 import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Random;
+import java.util.*;
+import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -18,6 +19,8 @@ public class WordSearcher {
     boolean can_overlap = true;
     String [] [] puzzle;
     String [] [] solution;
+
+
 
     public WordSearcher(WordCollection some_word_collection, int a_grid_width, int a_grid_height, boolean a_can_overlap){
         miniWordCollection = some_word_collection;
@@ -165,12 +168,93 @@ public class WordSearcher {
     }
 
 
-    /*
-     public static String [] [] solvePuzzle( String [] [] somePuzzle, ArrayList<String> someStrings){
+
+    public String[][] solvePuzzle(String[][] somePuzzle, ArrayList<String> someStrings){
+        int ROWS = somePuzzle.length;
+        int COLS = somePuzzle[0].length;
+        puzzle = somePuzzle;
+        solution = new String[ROWS][COLS];
+        int counter = 0;
+
+        for (String word: someStrings){
+            for (int r = 0; r < puzzle.length; r++){
+                for (int c = 0; c < puzzle[0].length; c++){
+                    String currentChar = String.valueOf(word.charAt(counter));
+                    searchArray(counter, word, ROWS, COLS, r, c);
+
+                        solution [r][c] = puzzle [r][c];
+
+                }
+            }
+        }
+        return solution;
+
+    }
+    public boolean searchArray(int counter, String word, int ROWS, int COLS, int row, int col){
+
+        if (row < 0 || row > ROWS - 1 || col < 0 || col > COLS - 1){
+            return false;
+        }
+        //if(!(puzzle[row][col].equals(String.valueOf(word.charAt(counter+1))))){
+        /*
+        if (counter + 1 == word.length()){
+        if ((puzzle[row][col].equals(String.valueOf(word.charAt(counter)))) || (String.valueOf(word.charAt(counter)).equals(String.valueOf(word.charAt(word.length()))))){
+            //if(!(puzzle[row][col].equals(String.valueOf(word.charAt(counter))))){
+            solution[row][col]=puzzle[row][col];
+            return;
+        }//else {
+                //solution[row][col]=puzzle[row][col];
+                //return;
+            // }
+       } */
+        counter++;
+        String currentChar = String.valueOf(word.charAt(counter));
+
+        if (counter == word.length()-1){
+            if (!(puzzle[row][col].equals(String.valueOf(word.charAt(counter))))){
+                return false;
+            } else{
+                solution[row][col]=puzzle[row][col];
+                return true; }
+        }
+
+        /*     return;
+        }else if ((String.valueOf(word.charAt(counter))) == null){
+         return;
+        }
+        }*/else{
+            if (!(puzzle[row][col].equals(String.valueOf(word.charAt(counter))))){
+                return false;
+            }//else{
+        }
+
+             searchArray(counter, word, ROWS, COLS, row, col + 1);   // check right
+
+                searchArray(counter, word, ROWS, COLS, row + 1, col);   // check bottom
+
+                searchArray(counter, word, ROWS, COLS,row, col - 1);   // check left
+
+                searchArray(counter, word, ROWS, COLS, row - 1, col);   // check top
+
+               searchArray(counter, word, ROWS, COLS,row + 1, col + 1);   // check bottomright
+
+                searchArray(counter, word, ROWS, COLS,row + 1, col - 1 );   // check bottomleft
+
+                searchArray(counter, word, ROWS, COLS,row - 1, col - 1);   // check top left
+
+                searchArray(counter, word, ROWS, COLS,row - 1, col + 1);   // check top right
+
+                /*
+                if (puzzle[row][col].equals(String.valueOf(word.charAt(counter)))){
+                    solution[row][col]=puzzle[row][col];
+                    return true;
+                }
+                */
+                //return true;
 
 
-     }
-      */
+        return false;
+    }
     public String toString(){
         String temp = "\nWord Search\n";
         for (int counter = 0; counter < miniWordCollection.words.size(); counter++){
@@ -260,13 +344,13 @@ public class WordSearcher {
         WordSearcher z2 = new WordSearcher(y2,20,24,false);
         System.out.println(z2);
         // Test case 3
-        WordCollection y3 = x.getSomeUniqueRandomWords(8,4,"flowers");
-        WordSearcher z3 = new WordSearcher(y3,20,20,true);
+        WordCollection y3 = x.getSomeUniqueRandomWords(8,4,"flowers");  //originally 8 ,4
+        WordSearcher z3 = new WordSearcher(y3,20,20,true);     //Originally 20, 20
         System.out.println(z3);
-        //z3.solution = null;
-        //ArrayList<String> word_list = y3.getEnglishInEnglishCollection();
-        //z3.solution = z3.solvePuzzle(puzzle,word_list));
-        //System.out.println(z3);
+        z3.solution = null;
+        ArrayList<String> word_list = y3.getEnglishInEnglishCollection();
+        z3.solution = z3.solvePuzzle(z3.puzzle,word_list);
+        System.out.println(z3);
 
 
     }

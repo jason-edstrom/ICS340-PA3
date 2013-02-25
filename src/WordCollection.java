@@ -363,7 +363,7 @@ public class WordCollection {
 
                     boolean hasDuplicate = false;
                     for (Word checkWord: tempHolderList){
-                        //if ((currentWord.getEnglishInEnglish().equals(checkWord.getEnglishInEnglish()))){
+
                         if (((currentWord.getEnglishInEnglish().replaceAll("\\s","")).equals(checkWord.getEnglishInEnglish().replaceAll("\\s","")))){
                             hasDuplicate = true;
                         }
