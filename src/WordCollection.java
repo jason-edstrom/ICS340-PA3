@@ -347,10 +347,12 @@ public class WordCollection {
                 }
             }
 
-            if ((internalCollection.words.size() == 0) || (internalCollection.words.size() < some_number)){
+            if (internalCollection.words.size() == 0){
                 hasEnough = false;
                 int remainder = some_number - internalCollection.words.size();
-            } else {
+            } else if(internalCollection.words.size() < some_number){
+                hasEnough = false;
+            }else {
                 ArrayList<Word> tempHolderList = new ArrayList<Word>();
 
                 Random randomGenerator = new Random();

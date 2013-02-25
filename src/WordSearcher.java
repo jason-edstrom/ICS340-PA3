@@ -180,7 +180,12 @@ public class WordSearcher {
                 temp = temp + "\t"+ miniWordCollection.words.get(counter).getEnglishInEnglish();
             }
         }
-        temp = temp + "\n\nPuzzle\n\n---------------------------------------";
+        temp = temp + "\n\nPuzzle\n\n";
+
+        for (int counter = 0; counter < this.grid_width+2; counter++){
+            temp = temp + "----";
+        }
+        //temp = temp +"\n";
         for (int row = 0; row < grid_width; row++) {
             for (int col = 0; col < grid_height; col++) {
                 String slot = null;
@@ -202,9 +207,17 @@ public class WordSearcher {
 
     }
         }
-        temp = temp + "\n---------------------------------------\n\nSolution\n";
+        temp = temp +"\n";
+        for (int counter = 0; counter < this.grid_width+2; counter++){
+            temp = temp + "----";
+        }
+        temp = temp + "\n\nSolution\n";
 
-        temp = temp + "\n\n---------------------------------------";
+        //temp = temp + "\n\n---------------------------------------";
+        temp = temp +"\n";
+        for (int counter = 0; counter < this.grid_width+2; counter++){
+            temp = temp + "----";
+        }
         for (int row = 0; row < grid_width; row++) {
             for (int col = 0; col < grid_height; col++) {
                 String slot = null;
@@ -226,9 +239,11 @@ public class WordSearcher {
 
             }
         }
-        temp = temp + "\n---------------------------------------";
-
-
+        //temp = temp + "\n---------------------------------------";
+        temp = temp +"\n";
+        for (int counter = 0; counter < this.grid_width+2; counter++){
+        temp = temp + "----";
+        }
 
         return temp;
     }
@@ -244,7 +259,7 @@ public class WordSearcher {
         WordCollection y2 = x.getSomeUniqueRandomWords(15,5, "animals");
         WordSearcher z2 = new WordSearcher(y2,20,24,false);
         System.out.println(z2);
-       /* // Test case 3
+        // Test case 3
         WordCollection y3 = x.getSomeUniqueRandomWords(8,4,"flowers");
         WordSearcher z3 = new WordSearcher(y3,20,20,true);
         System.out.println(z3);
@@ -252,7 +267,7 @@ public class WordSearcher {
         //ArrayList<String> word_list = y3.getEnglishInEnglishCollection();
         //z3.solution = z3.solvePuzzle(puzzle,word_list));
         //System.out.println(z3);
-       */
+
 
     }
 
