@@ -1,7 +1,6 @@
-import java.awt.*;
-import java.lang.reflect.Array;
+
 import java.util.*;
-import java.util.List;
+
 
 /**
  * Created with IntelliJ IDEA.
@@ -39,12 +38,14 @@ public class WordSearcher {
 
     private void generatePuzzleAndSolution(){
            ArrayList<String> wordList = miniWordCollection.getEnglishInEnglishCollection();
+
+            //check for bounds
            for (String word: wordList){
 
                if ( (word.length()>grid_height) ||  (word.length() > grid_width)){
                    throw new  ArrayStoreException("Word is too big for word search grid");
                }
-           }
+           }  //start adding words
              for(String word : wordList){
                  boolean firstWord = false;
                  if (word.equals(wordList.get(0))){
@@ -56,7 +57,9 @@ public class WordSearcher {
                  add(word, puzzle);
 
             }
+        //make a copy
         solution = copyPuzzle();
+        //fill in the empty spaces
         fill(puzzle);
     }
 
@@ -71,7 +74,7 @@ public class WordSearcher {
 
         for(int tries=0; tries<100; tries++) {
             Random r = new Random();
-
+            //direction and orientation logic
             int orientation = r.nextInt(2); // 0 = Forwards,   1 = Backwards
             if(orientation == 1) word = flip(word);
 
@@ -168,7 +171,8 @@ public class WordSearcher {
     }
 
 
-
+    //Start working on different recursion approaches with a varying results.  Some more accurate than others. The main issue that I couldn't get the find you go
+    //in a straight line. Currently not working.
     public String[][] solvePuzzle(String[][] somePuzzle, ArrayList<String> someStrings){
         int ROWS = somePuzzle.length;
         int COLS = somePuzzle[0].length;
@@ -269,7 +273,7 @@ public class WordSearcher {
         for (int counter = 0; counter < this.grid_width+2; counter++){
             temp = temp + "----";
         }
-        //temp = temp +"\n";
+
         for (int row = 0; row < grid_width; row++) {
             for (int col = 0; col < grid_height; col++) {
                 String slot = null;
@@ -297,7 +301,7 @@ public class WordSearcher {
         }
         temp = temp + "\n\nSolution\n";
 
-        //temp = temp + "\n\n---------------------------------------";
+
         temp = temp +"\n";
         for (int counter = 0; counter < this.grid_width+2; counter++){
             temp = temp + "----";
@@ -323,7 +327,7 @@ public class WordSearcher {
 
             }
         }
-        //temp = temp + "\n---------------------------------------";
+
         temp = temp +"\n";
         for (int counter = 0; counter < this.grid_width+2; counter++){
         temp = temp + "----";
