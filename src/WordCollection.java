@@ -347,7 +347,7 @@ public class WordCollection {
                 }
             }
 
-            if ((internalCollection.words.size() == 0) ^ (internalCollection.words.size() < some_number)){
+            if ((internalCollection.words.size() == 0) || (internalCollection.words.size() < some_number)){
                 hasEnough = false;
                 int remainder = some_number - internalCollection.words.size();
             } else {

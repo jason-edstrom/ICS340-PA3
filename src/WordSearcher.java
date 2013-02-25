@@ -56,16 +56,10 @@ public class WordSearcher {
         solution = copyPuzzle();
         fill(puzzle);
     }
-    /*
-    private void addCharacters (char[] letters, boolean first ){
-        if (first){
 
-        }
-
-    } */
 
     private boolean add(String word, String [][] puzzle) {
-        //word = word.toUpperCase();
+
 
         String[][] origPuzzle = new String[grid_width][grid_height];
         for(int i=0; i<grid_width; i++)
@@ -78,15 +72,16 @@ public class WordSearcher {
             int orientation = r.nextInt(2); // 0 = Forwards,   1 = Backwards
             if(orientation == 1) word = flip(word);
 
-            int direction   = r.nextInt(3); // 0 = Horizontal, 1 = Vertical,  2 = Diagonal
+            int direction = r.nextInt(3); // 0 = Horizontal, 1 = Vertical,  2 = Diagonal
 
-            int row			= r.nextInt(grid_width - word.length());
-            int col			= r.nextInt(grid_height - word.length());
+            int row	= r.nextInt(grid_width - word.length());
+            int col	= r.nextInt(grid_height - word.length());
 
             int i;
             for(i=0; i<word.length(); i++) {
                 boolean isEmpty = false;
                 boolean isSameLetter = false;
+                if (can_overlap = true){
                 String puzzleWord = String.valueOf(word.charAt(i));
                 if (puzzle[row][col] == null){
                       isEmpty = true;
@@ -97,7 +92,15 @@ public class WordSearcher {
                     isEmpty = false;
                     isSameLetter = false;
                 }
-
+                } else{
+                    String puzzleWord = String.valueOf(word.charAt(i));
+                    if (puzzle[row][col] == null){
+                        isEmpty = true;
+                    }else{
+                        isEmpty = false;
+                        isSameLetter = false;
+                    }
+                }
 
                 if((isEmpty) || (isSameLetter))  {
                     puzzle[row][col] = Character.toString(word.charAt(i));
@@ -231,10 +234,25 @@ public class WordSearcher {
     }
 
     public static void main(String args[]){
-        WordCollection collection = new WordCollection("SmallRealWords.txt");
-       WordCollection y1 = collection.getSomeUniqueRandomWords(10,4,null);
+        // get the entire word collection
+        WordCollection x = new WordCollection("SmallRealWords.txt");
+        // Test case 1
+        WordCollection y1 = x.getSomeUniqueRandomWords(10,4,null);
         WordSearcher z1 = new WordSearcher(y1);
         System.out.println(z1);
+        // Test case 2
+        WordCollection y2 = x.getSomeUniqueRandomWords(15,5, "animals");
+        WordSearcher z2 = new WordSearcher(y2,20,24,false);
+        System.out.println(z2);
+       /* // Test case 3
+        WordCollection y3 = x.getSomeUniqueRandomWords(8,4,"flowers");
+        WordSearcher z3 = new WordSearcher(y3,20,20,true);
+        System.out.println(z3);
+        //z3.solution = null;
+        //ArrayList<String> word_list = y3.getEnglishInEnglishCollection();
+        //z3.solution = z3.solvePuzzle(puzzle,word_list));
+        //System.out.println(z3);
+       */
 
     }
 
